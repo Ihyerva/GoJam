@@ -31,20 +31,42 @@ public class Enemy : MonoBehaviour
     private Transform _bulletPoint;
     [SerializeField]
     private float _range;
+    [SerializeField]
+    private List<Transform> _enemyMoveList = new List<Transform>();
+
+    private int _currentTargetIndex = 0;
     
 
 
-    public void Awake()
+    public void Awake()  
     {
         _currentHealth = _maxHealth;
-        _timer = 0;
+        _timer = _cooldown;
          
     }
 
 
     public void Update()
     {
-        Attack();
+        if (Vector2.Distance(transform.position, _baseTransform.position) <= _range)
+        {
+            if (_timer >= _cooldown)
+            {
+                Attack();
+            }
+            else if (_timer < _cooldown)
+            {
+                _timer += Time.deltaTime;
+            }
+
+
+        }
+        else
+        {
+            EnemyMove();
+        }
+
+       
     }
 
 
@@ -52,35 +74,36 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _currentHealth-=damage;
+        if (_currentHealth <= 0)
+        {
+
+            Destroy(gameObject);
+        }
     }
 
   
    public void Attack()
     {
-        if (Vector2.Distance(transform.position, _baseTransform.position) <= _range && _timer >= _cooldown)
-        {
-            GameObject enemyBullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
-            enemyBullet.GetComponent<Rigidbody2D>().AddForce((_baseTransform.position- _bulletPoint.position).normalized * _bulletSpeed);
-
-            _timer = 0;
-
-            
-        }
-        else if (_timer < _cooldown)
-        {
-            _timer += Time.deltaTime;
-        }
-
-
+        GameObject enemyBullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
+        enemyBullet.GetComponent<Rigidbody2D>().AddForce((_baseTransform.position - _bulletPoint.position).normalized * _bulletSpeed);
+        _timer = 0;
     }
 
-    public void EnemyDespawn()
-    {
-        if (_currentHealth <= 0)
-        {
+   
 
-           Destroy(gameObject);
+
+    public void EnemyMove()
+    {
+      Transform Target = _enemyMoveList[_currentTargetIndex];
+        transform.position=Vector2.MoveTowards(transform.position, Target.position, _speed*Time.deltaTime);
+        if (Vector2.Distance(transform.position, Target.position) < 0.1f)
+        {
+            _currentTargetIndex++;
+
         }
+
+     
+        
     }
 
 
