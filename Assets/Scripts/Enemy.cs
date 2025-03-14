@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
     public void Update()
     {
         Attack();
+        EnemyDespawn();
     }
 
 

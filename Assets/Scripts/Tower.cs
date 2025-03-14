@@ -11,7 +11,7 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private float cooldown,bulletSpeed;
     [SerializeField]
-    private int price,damage;
+    private int price;
     [SerializeField]
     private GameObject bullet, bulletPoint;
 

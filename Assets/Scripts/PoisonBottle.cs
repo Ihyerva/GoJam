@@ -2,10 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoisonBottle : MonoBehaviour
+public enum bulletType
+{
+    spawn,
+    thrown,
+    area
+}
+public class TowerBullets : MonoBehaviour
 {
     [SerializeField]
     private int damage;
+    [SerializeField]
+    private float range;
+    [SerializeField]
+    private bulletType type;
+
+    private Transform target;
+
     private void Start()
     {
         Destroy(gameObject, 5);
@@ -13,13 +26,32 @@ public class PoisonBottle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 3, transform.position);
-        foreach (RaycastHit2D hit in hits) {
-            if(hit.collider.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy")
+        {
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, transform.position);
+            for (int i = 0;i<hits.Length;i++)
             {
-                hit.collider.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+                if (hits[i].collider.gameObject.tag == "Enemy")
+                {
+                    hits[i].collider.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+                }
             }
-        } 
+            Destroy(gameObject);
+
+        }
+
+
+    }
+
+    public void setTarget(Transform x)
+    {
+        target = x;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, range);
 
     }
 }
