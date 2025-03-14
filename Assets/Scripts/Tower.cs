@@ -56,4 +56,14 @@ public class Tower : MonoBehaviour
 
 
     }
+
+
+    public int GetPrice()
+    {
+        return price;
+
+    }
+
+
+
 }
