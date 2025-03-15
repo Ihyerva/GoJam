@@ -13,7 +13,7 @@ public class TowerBullets : MonoBehaviour
     [SerializeField]
     private int damage;
     [SerializeField]
-    private float range;
+    private float range,speed;
     [SerializeField]
     private bulletType type;
 
@@ -22,6 +22,15 @@ public class TowerBullets : MonoBehaviour
     private void Start()
     {
         Destroy(gameObject, 5);
+        switch(type)
+        {
+            case bulletType.spawn:
+                StartCoroutine("spawnerDamage");
+                break;
+            case bulletType.thrown:
+                gameObject.GetComponent<Rigidbody2D>().AddForce((target.position-transform.position).normalized*speed);
+                break;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,5 +69,13 @@ public class TowerBullets : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, range);
 
+    }
+
+    private IEnumerator spawnerDamage()
+    {
+        transform.position = target.position;
+        yield return new WaitForSeconds(0.8f);
+        target.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+        Destroy(gameObject,0.1f);
     }
 }

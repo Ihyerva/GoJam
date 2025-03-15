@@ -40,14 +40,12 @@ public class Tower : MonoBehaviour
                     currentTarget = hits[i].gameObject.transform;
                     break;
                 }
+                else if (!includes)
+                    currentTarget = null;
             }
         } 
 
-
-
-
-
-        if (timer >= cooldown && hits.Length > 0)
+        if (timer >= cooldown && currentTarget!=null)
         {
             Attack();
             timer = 0;
@@ -72,6 +70,10 @@ public class Tower : MonoBehaviour
 
     }
 
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
 
 }

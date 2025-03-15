@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     private float _cooldown;
     private float _timer;
     [SerializeField]
-    private GameObject _bulletPrefab;
+    private GameObject _bulletPrefab,DimensionalCopy;
     [SerializeField]
     private float _bulletSpeed;
     [SerializeField]
@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     private float _range;
     [SerializeField]
     private List<Transform> _enemyMoveList = new List<Transform>();
-
+    private bool canClick = false;
     private int _currentTargetIndex = 0;
     
 
@@ -58,15 +58,11 @@ public class Enemy : MonoBehaviour
             {
                 _timer += Time.deltaTime;
             }
-
-
         }
         else
         {
             EnemyMove();
         }
-
-       
     }
 
 
@@ -76,7 +72,6 @@ public class Enemy : MonoBehaviour
         _currentHealth-=damage;
         if (_currentHealth <= 0)
         {
-
             Destroy(gameObject);
         }
     }
@@ -101,10 +96,24 @@ public class Enemy : MonoBehaviour
             _currentTargetIndex++;
 
         }
-
-     
-        
     }
 
 
+    private void OnMouseEnter()
+    {
+        canClick = true;
+    }
+    private void OnMouseExit()
+    {
+        canClick = false;
+    }
+
+    private void OnMouseDown()
+    {
+        if (canClick)
+        {
+            //spawnDimensionalCopy
+            Destroy(gameObject);
+        }
+    }
 }
