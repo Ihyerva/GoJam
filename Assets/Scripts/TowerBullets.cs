@@ -26,18 +26,25 @@ public class TowerBullets : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+
+        if(type == bulletType.thrown && collision.gameObject.tag == "Enemy")
         {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, transform.position);
-            for (int i = 0;i<hits.Length;i++)
+            if(range > 0)
             {
-                if (hits[i].collider.gameObject.tag == "Enemy")
+                RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, transform.position);
+                for (int i = 0; i < hits.Length; i++)
                 {
-                    hits[i].collider.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+                    if (hits[i].collider.gameObject.tag == "Enemy")
+                    {
+                        hits[i].collider.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+                    }
                 }
             }
+            else
+            {
+                collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            }
             Destroy(gameObject);
-
         }
 
 
