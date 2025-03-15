@@ -15,6 +15,7 @@ public class PlayerControl : MonoBehaviour
     int currentDimension = 1;
     int dimensionShifts = 5;
     GameObject dimensionShiftTarget;
+    [SerializeField] private GameEvent _moneyChanged;
     
 
     public void Awake()
@@ -28,6 +29,7 @@ public class PlayerControl : MonoBehaviour
     {
         HandleControls();
         TowerPlacement();
+       
     }
     public void FixedUpdate()
     {
@@ -67,7 +69,11 @@ public class PlayerControl : MonoBehaviour
             }
             if (_canPlace) {
                 Instantiate(_towers[0], _rigidbody.transform.position, _rigidbody.transform.rotation);
-                _playerMoney -= _towers[0].GetComponent<Tower>().GetPrice();
+                
+
+                _moneyChanged.Raise(this, -_towers[0].GetComponent<Tower>().GetPrice());
+
+
             }
 
 
