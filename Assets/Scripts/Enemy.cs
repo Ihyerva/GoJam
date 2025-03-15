@@ -77,8 +77,15 @@ public class Enemy : MonoBehaviour
    public void Attack()
     {
         GameObject enemyBullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
-        enemyBullet.GetComponent<Rigidbody2D>().AddForce((_baseTransform.position - _bulletPoint.position).normalized * _bulletSpeed);
+        BulletScript bulletScript = enemyBullet.GetComponent<BulletScript>();
+        /*
+        if(!bulletScript.enabled)
+        {
+            bulletScript.enabled = true;
+        }
         _timer = 0;
+        */
+        bulletScript.setTarget(_baseTransform);
     }
 
    
