@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,10 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private List<GameObject> _towers = new List<GameObject>();
     [SerializeField] private int _playerMoney;
     [SerializeField] private float _playerPlacementRange = 20f;
-   
+    [SerializeField] private Transform spawnPoint1,spawnPoint2;
+    int currentDimension = 1;
+    int dimensionShifts = 5;
+    GameObject dimensionShiftTarget;
     
 
     public void Awake()
@@ -35,16 +39,7 @@ public class PlayerControl : MonoBehaviour
     {
         _movement.x = Input.GetAxisRaw("Horizontal");
         _movement.y = Input.GetAxisRaw("Vertical");
-
         _movement = _movement.normalized;
-
-
-        
-        
-      
-
-
-
     }
     public void HandleMovement()
     {
@@ -97,10 +92,41 @@ public class PlayerControl : MonoBehaviour
 
     public int GetMoney()
     {
-
-
         return _playerMoney;
     }
 
-
+    private void changeDimensionShiftTarget(Component sender, object newTarget)
+    {
+        dimensionShiftTarget = (GameObject) newTarget;
+    }
+    
+    private void dimensionShift()
+    {
+        if(currentDimension == 1)
+        {
+            gameObject.transform.position = spawnPoint2.position;
+            currentDimension = 2;
+        }
+        else if(currentDimension == 1)
+        {
+            gameObject.transform.position = spawnPoint1.position;
+            currentDimension = 2;
+        }
+    }
+    private void OnMouseDown()
+    {
+        if(Input.GetKey(KeyCode.Space) && dimensionShifts > 0)
+        {
+            if (dimensionShiftTarget.tag == "Enemy" && dimensionShiftTarget.GetComponent<Enemy>().getDimension() == currentDimension)
+            {
+                dimensionShiftTarget.GetComponent<Enemy>().dimensionShift();
+                dimensionShifts--;
+            }
+            else if (dimensionShiftTarget.tag == "Player")
+            {
+                dimensionShift();
+                dimensionShifts--;
+            }
+        }
+    }
 }

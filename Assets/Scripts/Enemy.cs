@@ -7,34 +7,29 @@ using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
-    
-
+    [SerializeField]
+    private int dimension;
     [SerializeField]
     private int _maxHealth;
     private int _currentHealth;
     [SerializeField]
     private int _damage;
     [SerializeField]
-    private float _speed;
+    private float _speed,_cooldown,_bulletSpeed;
     [SerializeField]
     private int _moneyGain;
-    [SerializeField]
-    private float _cooldown;
     private float _timer;
     [SerializeField]
     private GameObject _bulletPrefab,DimensionalCopy;
     [SerializeField]
-    private float _bulletSpeed;
-    [SerializeField]
-    private Transform _baseTransform;
+    private Transform _baseTransform,shiftSpawnLocation;
     [SerializeField]
     private Transform _bulletPoint;
     [SerializeField]
     private float _range;
     [SerializeField]
     private List<Transform> _enemyMoveList = new List<Transform>();
-    private bool canClick = false;
-    [SerializeField] private GameEvent _moneyGainEvent;
+    [SerializeField] private GameEvent _moneyGainEvent,dimensionShiftTargetChangedEvent;
     private int _currentTargetIndex = 0;
     
 
@@ -79,7 +74,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-  
    public void Attack()
     {
         GameObject enemyBullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
@@ -104,19 +98,21 @@ public class Enemy : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        canClick = true;
+        dimensionShiftTargetChangedEvent.Raise(this,gameObject);
     }
     private void OnMouseExit()
     {
-        canClick = false;
+        dimensionShiftTargetChangedEvent.Raise(this, null);
     }
 
-    private void OnMouseDown()
+    public void dimensionShift()
     {
-        if (canClick)
-        {
-            //spawnDimensionalCopy
-            Destroy(gameObject);
-        }
+        Instantiate(DimensionalCopy, shiftSpawnLocation.position, shiftSpawnLocation.rotation);
+        Destroy(gameObject);
+    }
+
+    public int getDimension()
+    {
+        return dimension;
     }
 }
