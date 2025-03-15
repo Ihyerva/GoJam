@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private List<Transform> _enemyMoveList = new List<Transform>();
     private bool canClick = false;
+    [SerializeField] private GameEvent _moneyGainEvent;
     private int _currentTargetIndex = 0;
     
 
@@ -72,6 +73,8 @@ public class Enemy : MonoBehaviour
         _currentHealth-=damage;
         if (_currentHealth <= 0)
         {
+
+            _moneyGainEvent.Raise(this,_moneyGain);
             Destroy(gameObject);
         }
     }

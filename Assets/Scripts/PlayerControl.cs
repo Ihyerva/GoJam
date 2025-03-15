@@ -88,4 +88,19 @@ public class PlayerControl : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _playerPlacementRange);
     }
 
+    public void IncreaseMoney(Component sender, object GainMoney)
+    {
+        _playerMoney += (int) GainMoney;
+
+
+    }
+
+    public int GetMoney()
+    {
+
+
+        return _playerMoney;
+    }
+
+
 }
