@@ -92,13 +92,17 @@ public class Enemy : MonoBehaviour
 
     public void EnemyMove()
     {
-      Transform Target = _enemyMoveList[_currentTargetIndex];
-        transform.position=Vector2.MoveTowards(transform.position, Target.position, _speed*Time.deltaTime);
-        if (Vector2.Distance(transform.position, Target.position) < 0.1f)
+        if (_currentTargetIndex < _enemyMoveList.Count)
         {
-            _currentTargetIndex++;
+            Transform Target = _enemyMoveList[_currentTargetIndex];
+            transform.position = Vector2.MoveTowards(transform.position, Target.position, _speed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, Target.position) < 0.1f)
+            {
+                _currentTargetIndex++;
 
+            }
         }
+
     }
 
 
@@ -120,5 +124,10 @@ public class Enemy : MonoBehaviour
     public int getDimension()
     {
         return dimension;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(gameObject.transform.position,_range);
     }
 }

@@ -11,7 +11,7 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private int price;
     [SerializeField]
-    private GameObject bullet, bulletPoint;
+    private GameObject bullet, bulletPoint, rangeCircle;
     private Transform currentTarget;
 
     private void Start()
@@ -74,6 +74,15 @@ public class Tower : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    private void OnMouseEnter()
+    {
+        rangeCircle.SetActive(true);
+    }
+    private void OnMouseExit()
+    {
+        rangeCircle.SetActive(false);
     }
 
 }

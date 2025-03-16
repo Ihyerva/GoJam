@@ -46,9 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a028eef4c64984dbb3915c51f2caa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemySpawnLocation: {fileID: 0}
-  _enemySpawnList: []
-  _buffer: []
+  _enemySpawnLocation1: {fileID: 0}
+  _enemySpawnLocation2: {fileID: 0}
+  _enemySpawnList:
+  - {fileID: 7076398237643415069, guid: 55cfce3247057764289cffd620be1e85, type: 3}
+  - {fileID: 7076398237643415069, guid: fd962befed9a9f44884b7859f2719621, type: 3}
+  - {fileID: 7076398237643415069, guid: ca74369012d4d2a4494c9d927c69cd5c, type: 3}
+  - {fileID: 965460151621976347, guid: 31388cc3df209e34d8b1d7c343434fe4, type: 3}
+  - {fileID: 7076398237643415069, guid: 691ebd2fca9779b478fea208ffbdb18f, type: 3}
+  - {fileID: 7789939728220464095, guid: eecbcd8bf10b90f4d972daa7c48683c7, type: 3}
+  _baseHealth: 100
+  _currentBaseHealth: 0
 --- !u!114 &5070411344903896667
 MonoBehaviour:
   m_ObjectHideFlags: 0

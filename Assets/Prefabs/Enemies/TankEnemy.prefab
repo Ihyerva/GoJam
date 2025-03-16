@@ -139,9 +139,9 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 2337125966888329467, guid: 2496e4e8f079ec642b065026f9ec59a6, type: 3}
   DimensionalCopy: {fileID: 7789939728220464095, guid: eecbcd8bf10b90f4d972daa7c48683c7, type: 3}
   _baseTransform: {fileID: 1679744109804584560, guid: 925ca3be398f0f14abe46ba420e30b01, type: 3}
-  shiftSpawnLocation: {fileID: 569649876368686979, guid: 8457a00321bb5b94ba5b959c01447d25, type: 3}
+  shiftSpawnLocation: {fileID: 0}
   _bulletPoint: {fileID: 3693447321313512386}
-  _range: 0.5
+  _range: 1
   _enemyMoveList:
   - {fileID: 6261987326919051679, guid: f8e622c34c6f02f4082bd2bfd7c2a363, type: 3}
   - {fileID: 8186703719708027970, guid: 146389b183968524b8b439f29960b7e8, type: 3}

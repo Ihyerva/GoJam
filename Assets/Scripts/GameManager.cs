@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Transform _enemySpawnLocation1,_enemySpawnLocation2;
     [SerializeField] private List<GameObject> _enemySpawnList = new List<GameObject>();
-    private int _currentSpawnIndex;
-    private int _currentSpawnerBuffer;
-    [SerializeField] private List<float> _buffer = new List<float>();
     [SerializeField] private int _baseHealth = 100;
     [SerializeField] private int _currentBaseHealth;
     
@@ -18,8 +16,6 @@ public class GameManager : MonoBehaviour
     public void Awake()
     {
         _currentBaseHealth = _baseHealth;
-        _currentSpawnIndex = 0;
-       _currentSpawnerBuffer = 0;
     }
     public void Start()
     {
@@ -30,27 +26,29 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        while(_currentSpawnIndex < _enemySpawnList.Count)
+;
+        while (true)
         {
-            if (_enemySpawnList[_currentSpawnIndex] != null)
+            int x = Random.Range(0, 6);
+            int y = Random.Range(1, 4);
+
+            if (_enemySpawnList[x] != null)
             {
-                if(_enemySpawnList[_currentSpawnIndex].GetComponent<Enemy>().getDimension() == 1)
+                if(_enemySpawnList[x].GetComponent<Enemy>().getDimension() == 1)
                 {
-                    Instantiate(_enemySpawnList[_currentSpawnIndex], _enemySpawnLocation1.position, Quaternion.identity);
-                    _enemySpawnList[_currentSpawnIndex].GetComponent<Enemy>().shiftSpawnLocation = _enemySpawnLocation2;
+                    Instantiate(_enemySpawnList[x], _enemySpawnLocation1.position, Quaternion.identity);
+                    _enemySpawnList[x].GetComponent<Enemy>().shiftSpawnLocation = _enemySpawnLocation2;
                 }
                 else
                 {
-                    Instantiate(_enemySpawnList[_currentSpawnIndex], _enemySpawnLocation2.position, Quaternion.identity);
-                    _enemySpawnList[_currentSpawnIndex].GetComponent<Enemy>().shiftSpawnLocation = _enemySpawnLocation1;
+                    Instantiate(_enemySpawnList[x], _enemySpawnLocation2.position, Quaternion.identity);
+                    _enemySpawnList[x].GetComponent<Enemy>().shiftSpawnLocation = _enemySpawnLocation1;
                 }
 
-                _currentSpawnIndex++;
                 
             }
 
-            yield return new WaitForSeconds(_buffer[_currentSpawnerBuffer]);
-            _currentSpawnerBuffer++;
+            yield return new WaitForSeconds(y);
 
 
 

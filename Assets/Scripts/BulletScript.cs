@@ -58,17 +58,19 @@ public class BulletScript : MonoBehaviour
     public void setTarget(Transform newTarget)
     {
         target = newTarget;
+        print(target.position);
     }
 
 
     public void Move()
     {
-        transform.Translate(target.position * Time.deltaTime * speed);
-        
+        //transform.Translate(target.position * Time.deltaTime * speed);
+        transform.position = Vector3.Lerp(transform.position, target.position, .5f * Time.deltaTime);
     }
 
     private IEnumerator enemySpawnDamage()
     {
+        
         transform.position = target.position;
         yield return new WaitForSeconds(0.8f);
         _gameManager.GetComponent<GameManager>().ChangeBaseHealth(_damage);

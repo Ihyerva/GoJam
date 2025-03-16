@@ -107,10 +107,10 @@ MonoBehaviour:
   _moneyGain: 100
   _bulletPrefab: {fileID: 2337125966888329467, guid: 2496e4e8f079ec642b065026f9ec59a6, type: 3}
   DimensionalCopy: {fileID: 7076398237643415069, guid: 55cfce3247057764289cffd620be1e85, type: 3}
-  _baseTransform: {fileID: 1679744109804584560, guid: 925ca3be398f0f14abe46ba420e30b01, type: 3}
-  shiftSpawnLocation: {fileID: 348862800732856190, guid: 3cadb22d0af6a1c4eb590a7bf8c5b1f2, type: 3}
+  _baseTransform: {fileID: 7868399300080258561, guid: d1949ecd65f5ebd40acc8a2f0fd7d69f, type: 3}
+  shiftSpawnLocation: {fileID: 0}
   _bulletPoint: {fileID: 3909162195103877585}
-  _range: 0.5
+  _range: 1
   _enemyMoveList:
   - {fileID: 41549748250744425, guid: ae8b9127d19565d4bb5ad9448db89c74, type: 3}
   - {fileID: 7770391656937704781, guid: fdb158d48da57fa4095965691dfc6c54, type: 3}
