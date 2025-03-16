@@ -17,10 +17,12 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     GameObject dimensionShiftTarget;
     [SerializeField] private GameEvent _moneyChanged;
+    private Animator anim;
     
 
     public void Awake()
     {
+        anim = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -58,6 +60,39 @@ public class PlayerControl : MonoBehaviour
         _movement.x = Input.GetAxisRaw("Horizontal");
         _movement.y = Input.GetAxisRaw("Vertical");
         _movement = _movement.normalized;
+        if (_movement.x > 0) // Moving Right
+        {
+            anim.SetInteger("Direction", 0);
+            anim.SetBool("IsMoving", true);
+
+
+        }
+        else if (_movement.x < 0) // Moving Left
+        {
+            anim.SetInteger("Direction", 1);
+            anim.SetBool("IsMoving", true);
+
+
+        }
+        else if (_movement.y > 0) // Moving Up
+        {
+            anim.SetInteger("Direction", 2);
+            anim.SetBool("IsMoving", true);
+
+
+        }
+        else if (_movement.y < 0) // Moving Down
+        {
+            anim.SetInteger("Direction", 3);
+            anim.SetBool("IsMoving", true);
+
+
+        }
+        else // Idle (no movement)
+        {
+            anim.SetBool("IsMoving", false);
+
+        }
     }
     public void HandleMovement()
     {
@@ -109,7 +144,8 @@ public class PlayerControl : MonoBehaviour
                 if (towerToPlace != null)
                 {
                     _moneyChanged.Raise(this, -towerToPlace.GetComponent<Tower>().GetPrice());
-                    Instantiate(towerToPlace, _rigidbody.transform.position, _rigidbody.transform.rotation);
+                    GameObject placedTower = Instantiate(towerToPlace, _rigidbody.transform.position, _rigidbody.transform.rotation);
+                    placedTower.GetComponent<Tower>().dimension = currentDimension;
                 }
             }
         }
