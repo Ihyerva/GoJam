@@ -32,11 +32,12 @@ public class Tower : MonoBehaviour
                 includes = true;
             }
         }
-        if(currentTarget == null || !includes)
+
+        if(currentTarget == null || !includes )
         {
             for (int i = 0; i < hits.Length; i++)
             {
-                if (hits[i].gameObject.tag == "Enemy")
+                if (hits[i].gameObject.tag == "Enemy" && hits[i].gameObject.GetComponent<Enemy>().getDimension() == dimension)
                 {
                     currentTarget = hits[i].gameObject.transform;
                     break;
