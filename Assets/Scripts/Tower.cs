@@ -13,6 +13,7 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private GameObject bullet, bulletPoint, rangeCircle;
     private Transform currentTarget;
+    public int dimension;
 
     private void Start()
     {

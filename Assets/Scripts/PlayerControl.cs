@@ -109,7 +109,8 @@ public class PlayerControl : MonoBehaviour
                 if (towerToPlace != null)
                 {
                     _moneyChanged.Raise(this, -towerToPlace.GetComponent<Tower>().GetPrice());
-                    Instantiate(towerToPlace, _rigidbody.transform.position, _rigidbody.transform.rotation);
+                    GameObject placedTower = Instantiate(towerToPlace, _rigidbody.transform.position, _rigidbody.transform.rotation);
+                    placedTower.GetComponent<Tower>().dimension = currentDimension;
                 }
             }
         }
