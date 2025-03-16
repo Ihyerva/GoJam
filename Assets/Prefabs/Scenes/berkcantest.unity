@@ -1756,11 +1756,11 @@ PrefabInstance:
     - target: {fileID: 7251925929894217557, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
       propertyPath: spawnPoint1
       value: 
-      objectReference: {fileID: 348862800732856190, guid: 3cadb22d0af6a1c4eb590a7bf8c5b1f2, type: 3}
+      objectReference: {fileID: 5179656281902838578, guid: 537d64d8586dbf0458f48386b4606c27, type: 3}
     - target: {fileID: 7251925929894217557, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
       propertyPath: spawnPoint2
       value: 
-      objectReference: {fileID: 569649876368686979, guid: 8457a00321bb5b94ba5b959c01447d25, type: 3}
+      objectReference: {fileID: 7741916114054517764, guid: de746b87042c142438ed4a1235f0f858, type: 3}
     - target: {fileID: 7251925929894217557, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
       propertyPath: _playerSpeed
       value: 5
