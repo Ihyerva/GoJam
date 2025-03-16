@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     private int _moneyGain;
     private float _timer;
     [SerializeField]
-    private GameObject _bulletPrefab,DimensionalCopy;
+    private GameObject _bulletPrefab,DimensionalCopy,healthBar;
     public Transform _baseTransform,shiftSpawnLocation;
     [SerializeField]
     private Transform _bulletPoint;
@@ -66,12 +66,14 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _currentHealth-=damage;
+        healthBar.transform.localScale = new Vector3((float)(_currentHealth) / (float)(_maxHealth), healthBar.transform.localScale.y, healthBar.transform.localScale.z);
         if (_currentHealth <= 0)
         {
 
             _moneyGainEvent.Raise(this,_moneyGain);
             Destroy(gameObject);
         }
+
     }
 
    public void Attack()
