@@ -100,11 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a412ab455425354d96e7cc2746b6a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 50
   range: 0
   speed: 200
   type: 1
-  _audioSource: {fileID: 2246486584166023143}
 --- !u!50 &4828170699403041805
 Rigidbody2D:
   serializedVersion: 4

@@ -13,6 +13,7 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private GameObject bullet, bulletPoint, rangeCircle;
     private Transform currentTarget;
+    [SerializeField] private AudioSource _audioSource;
 
     private void Start()
     {
@@ -59,6 +60,8 @@ public class Tower : MonoBehaviour
     {
         GameObject currentBullet = Instantiate(bullet, bulletPoint.transform.position, bulletPoint.transform.rotation);
         currentBullet.GetComponent<TowerBullets>().setTarget(currentTarget);
+        _audioSource.Play();
+
 
 
     }
