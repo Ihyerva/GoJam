@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _baseHealth = 100;
     [SerializeField] private int _currentBaseHealth;
     [SerializeField] private Image _healthBar;
-    
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
+
 
 
     public void Awake()
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         StartCoroutine(SpawnEnemies());
+        
     }
 
 
