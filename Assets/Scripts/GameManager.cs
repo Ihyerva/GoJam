@@ -10,11 +10,14 @@ public class GameManager : MonoBehaviour
     private int _currentSpawnIndex;
     private int _currentSpawnerBuffer;
     [SerializeField] private List<float> _buffer = new List<float>();
+    [SerializeField] private int _baseHealth = 100;
+    [SerializeField] private int _currentBaseHealth;
     
 
 
     public void Awake()
     {
+        _currentBaseHealth = _baseHealth;
         _currentSpawnIndex = 0;
        _currentSpawnerBuffer = 0;
     }
@@ -23,7 +26,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
-
+  
 
     private IEnumerator SpawnEnemies()
     {
@@ -54,4 +57,16 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+
+
+    public void ChangeBaseHealth(int BaseHealth)
+    {
+
+        _currentBaseHealth -= BaseHealth;
+
+    }
+
+
+
 }

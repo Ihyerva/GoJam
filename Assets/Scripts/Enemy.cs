@@ -13,8 +13,6 @@ public class Enemy : MonoBehaviour
     private int _maxHealth;
     private int _currentHealth;
     [SerializeField]
-    private int _damage;
-    [SerializeField]
     private float _speed,_cooldown,_bulletSpeed;
     [SerializeField]
     private int _moneyGain;
@@ -77,7 +75,7 @@ public class Enemy : MonoBehaviour
     {
         if (_timer >= _cooldown)
         {
-            GameObject enemyBullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
+            GameObject enemyBullet = Instantiate(_bulletPrefab, _bulletPoint.position, transform.rotation);
             BulletScript bulletScript = enemyBullet.GetComponent<BulletScript>();
 
             bulletScript.setTarget(_baseTransform);

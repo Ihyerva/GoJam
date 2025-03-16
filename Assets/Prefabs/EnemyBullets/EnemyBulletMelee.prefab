@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 999766193801776273}
   - component: {fileID: 8509080330953425072}
   m_Layer: 0
-  m_Name: Enemy Bullet
+  m_Name: EnemyBulletMelee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c9baf189180f54fb88dfee720656ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  _gameManager: {fileID: 8415139006732874238, guid: f96ed2a48df141d4f87b8b015959fa27, type: 3}
+  _damage: 10
+  type: 0
+  speed: 3.5
 --- !u!50 &999766193801776273
 Rigidbody2D:
   serializedVersion: 4
