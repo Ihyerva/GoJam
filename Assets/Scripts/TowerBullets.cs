@@ -17,6 +17,8 @@ public class TowerBullets : MonoBehaviour
     [SerializeField]
     private bulletType type;
     private Transform target;
+    
+   
 
     private void Start()
     {
@@ -28,6 +30,7 @@ public class TowerBullets : MonoBehaviour
                 break;
             case bulletType.thrown:
                 gameObject.GetComponent<Rigidbody2D>().AddForce((target.position-transform.position).normalized*speed);
+                
                 break;
         }
     }
