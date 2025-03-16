@@ -145,10 +145,10 @@ public class PlayerControl : MonoBehaviour
             gameObject.transform.position = spawnPoint2.position;
             currentDimension = 2;
         }
-        else if (currentDimension == 1)
+        else if (currentDimension == 2)
         {
             gameObject.transform.position = spawnPoint1.position;
-            currentDimension = 2;
+            currentDimension = 1;
         }
     }
 
