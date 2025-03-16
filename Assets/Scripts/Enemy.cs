@@ -21,8 +21,7 @@ public class Enemy : MonoBehaviour
     private float _timer;
     [SerializeField]
     private GameObject _bulletPrefab,DimensionalCopy;
-    [SerializeField]
-    private Transform _baseTransform,shiftSpawnLocation;
+    public Transform _baseTransform,shiftSpawnLocation;
     [SerializeField]
     private Transform _bulletPoint;
     [SerializeField]

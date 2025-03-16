@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Transform _enemySpawnLocation;
+    [SerializeField] private Transform _enemySpawnLocation1,_enemySpawnLocation2;
     [SerializeField] private List<GameObject> _enemySpawnList = new List<GameObject>();
     private int _currentSpawnIndex;
     private int _currentSpawnerBuffer;
@@ -31,7 +31,17 @@ public class GameManager : MonoBehaviour
         {
             if (_enemySpawnList[_currentSpawnIndex] != null)
             {
-                Instantiate(_enemySpawnList[_currentSpawnIndex], _enemySpawnLocation.position, Quaternion.identity);
+                if(_enemySpawnList[_currentSpawnIndex].GetComponent<Enemy>().getDimension() == 1)
+                {
+                    Instantiate(_enemySpawnList[_currentSpawnIndex], _enemySpawnLocation1.position, Quaternion.identity);
+                    _enemySpawnList[_currentSpawnIndex].GetComponent<Enemy>().shiftSpawnLocation = _enemySpawnLocation2;
+                }
+                else
+                {
+                    Instantiate(_enemySpawnList[_currentSpawnIndex], _enemySpawnLocation2.position, Quaternion.identity);
+                    _enemySpawnList[_currentSpawnIndex].GetComponent<Enemy>().shiftSpawnLocation = _enemySpawnLocation1;
+                }
+
                 _currentSpawnIndex++;
                 
             }

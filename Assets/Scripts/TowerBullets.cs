@@ -16,7 +16,6 @@ public class TowerBullets : MonoBehaviour
     private float range,speed;
     [SerializeField]
     private bulletType type;
-
     private Transform target;
 
     private void Start()

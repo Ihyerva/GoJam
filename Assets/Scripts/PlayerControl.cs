@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Transform spawnPoint1,spawnPoint2;
     int currentDimension = 1;
     int dimensionShifts = 5;
+    [SerializeField]
     GameObject dimensionShiftTarget;
     [SerializeField] private GameEvent _moneyChanged;
     
@@ -29,7 +30,22 @@ public class PlayerControl : MonoBehaviour
     {
         HandleControls();
         TowerPlacement();
-       
+
+
+        if (Input.GetKey(KeyCode.Space) && Input.GetKeyDown(KeyCode.Mouse0) && dimensionShifts > 0)
+        {
+            if (dimensionShiftTarget.tag == "Enemy" && dimensionShiftTarget.GetComponent<Enemy>().getDimension() == currentDimension)
+            {
+                dimensionShiftTarget.GetComponent<Enemy>().dimensionShift();
+                dimensionShifts--;
+            }
+            else if (dimensionShiftTarget.tag == "Player")
+            {
+                dimensionShift();
+                dimensionShifts--;
+            }
+        }
+
     }
     public void FixedUpdate()
     {
@@ -101,7 +117,7 @@ public class PlayerControl : MonoBehaviour
         return _playerMoney;
     }
 
-    private void changeDimensionShiftTarget(Component sender, object newTarget)
+    public void ChangeDimensionShiftTarget(Component sender, object newTarget)
     {
         dimensionShiftTarget = (GameObject) newTarget;
     }
@@ -121,18 +137,6 @@ public class PlayerControl : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if(Input.GetKey(KeyCode.Space) && dimensionShifts > 0)
-        {
-            if (dimensionShiftTarget.tag == "Enemy" && dimensionShiftTarget.GetComponent<Enemy>().getDimension() == currentDimension)
-            {
-                dimensionShiftTarget.GetComponent<Enemy>().dimensionShift();
-                dimensionShifts--;
-            }
-            else if (dimensionShiftTarget.tag == "Player")
-            {
-                dimensionShift();
-                dimensionShifts--;
-            }
-        }
+        
     }
 }

@@ -31,7 +31,6 @@ public class BulletScript : MonoBehaviour
     public void setTarget(Transform newTarget)
     {
         target = newTarget;
-        print(target == null ? "Bos" : "Bos degil");
     }
 
 
