@@ -55,33 +55,49 @@ public class PlayerControl : MonoBehaviour
 
     public void TowerPlacement()
     {
-        if (Input.GetKeyDown(KeyCode.E) && _playerMoney >= _towers[0].GetComponent<Tower>().GetPrice())
+        
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.T)))
         {
             bool _canPlace = true;
             RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, _playerPlacementRange, transform.position);
-            for (int i = 0; i<hits.Length;i++)
+
+            // Check if the placement area is clear
+            for (int i = 0; i < hits.Length; i++)
             {
                 if (hits[i].collider.CompareTag("Tower"))
                 {
                     _canPlace = false;
+                    break; 
+                }
+            }
+
+            if (_canPlace)
+            {
+                GameObject towerToPlace = null;
+
+               
+                if (Input.GetKeyDown(KeyCode.E) && _playerMoney >= _towers[0].GetComponent<Tower>().GetPrice())
+                {
+                    towerToPlace = _towers[0];
+                }
+                else if (Input.GetKeyDown(KeyCode.R) && _playerMoney >= _towers[1].GetComponent<Tower>().GetPrice())
+                {
+                    towerToPlace = _towers[1];
+                }
+                else if (Input.GetKeyDown(KeyCode.T) && _playerMoney >= _towers[2].GetComponent<Tower>().GetPrice())
+                {
+                    towerToPlace = _towers[2];
                 }
 
-            }
-            if (_canPlace) {
-                Instantiate(_towers[0], _rigidbody.transform.position, _rigidbody.transform.rotation);
                 
-
-                _moneyChanged.Raise(this, -_towers[0].GetComponent<Tower>().GetPrice());
-
-
+                if (towerToPlace != null)
+                {
+                    _moneyChanged.Raise(this, -towerToPlace.GetComponent<Tower>().GetPrice());
+                    Instantiate(towerToPlace, _rigidbody.transform.position, _rigidbody.transform.rotation);
+                }
             }
-
-
         }
     }
-
-
-   
 
     private void OnDrawGizmos()
     {
@@ -91,7 +107,7 @@ public class PlayerControl : MonoBehaviour
 
     public void IncreaseMoney(Component sender, object GainMoney)
     {
-        _playerMoney += (int) GainMoney;
+        _playerMoney += (int)GainMoney;
 
 
     }
@@ -103,17 +119,17 @@ public class PlayerControl : MonoBehaviour
 
     private void changeDimensionShiftTarget(Component sender, object newTarget)
     {
-        dimensionShiftTarget = (GameObject) newTarget;
+        dimensionShiftTarget = (GameObject)newTarget;
     }
-    
+
     private void dimensionShift()
     {
-        if(currentDimension == 1)
+        if (currentDimension == 1)
         {
             gameObject.transform.position = spawnPoint2.position;
             currentDimension = 2;
         }
-        else if(currentDimension == 1)
+        else if (currentDimension == 1)
         {
             gameObject.transform.position = spawnPoint1.position;
             currentDimension = 2;
@@ -121,7 +137,7 @@ public class PlayerControl : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if(Input.GetKey(KeyCode.Space) && dimensionShifts > 0)
+        if (Input.GetKey(KeyCode.Space) && dimensionShifts > 0)
         {
             if (dimensionShiftTarget.tag == "Enemy" && dimensionShiftTarget.GetComponent<Enemy>().getDimension() == currentDimension)
             {
@@ -136,3 +152,8 @@ public class PlayerControl : MonoBehaviour
         }
     }
 }
+
+
+   
+
+  

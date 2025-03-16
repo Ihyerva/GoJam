@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4037635076019070127}
   - component: {fileID: 8938185344074762335}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: TankEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,8 +106,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,18 +131,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dimension: 0
-  _maxHealth: 0
-  _damage: 0
-  _speed: 10
-  _cooldown: 5
-  _bulletSpeed: 75
-  _moneyGain: 50
-  _bulletPrefab: {fileID: 2337125966888329467, guid: 6667665c1fa05924e9dbc15e87aa9f74, type: 3}
+  _maxHealth: 500
+  _speed: 2
+  _cooldown: 10
+  _bulletSpeed: 20
+  _moneyGain: 100
+  _bulletPrefab: {fileID: 2337125966888329467, guid: 2496e4e8f079ec642b065026f9ec59a6, type: 3}
   DimensionalCopy: {fileID: 0}
   _baseTransform: {fileID: 1679744109804584560, guid: 925ca3be398f0f14abe46ba420e30b01, type: 3}
   shiftSpawnLocation: {fileID: 0}
   _bulletPoint: {fileID: 3693447321313512386}
-  _range: 1
+  _range: 0.5
   _enemyMoveList:
   - {fileID: 6261987326919051679, guid: f8e622c34c6f02f4082bd2bfd7c2a363, type: 3}
   - {fileID: 8186703719708027970, guid: 146389b183968524b8b439f29960b7e8, type: 3}
@@ -194,7 +193,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5315600662248973342}
   - component: {fileID: 6982100911998833405}
   - component: {fileID: 775033906807567081}
+  - component: {fileID: -5919102657523937584}
   m_Layer: 0
   m_Name: ThrowingTower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.7013, y: 2.9701, z: 0}
-  m_LocalScale: {x: 1.5844735, y: 0.282, z: 1}
+  m_LocalScale: {x: 0.29276577, y: 0.27196017, z: 0.29416382}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9015d6aa408e7db4e8980fd7513df8fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +100,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 1
   bulletSpeed: 150
-  range: 4
+  range: 2.5
   price: 200
   bullet: {fileID: 8429045776218451997, guid: f1ba75fec4c0d7142b2df7386eebea69, type: 3}
   bulletPoint: {fileID: 8691985011421374142}
+--- !u!58 &-5919102657523937584
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691985011421374142}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.18904252, y: 0.16811585}
+  serializedVersion: 2
+  m_Radius: 2.3328342
