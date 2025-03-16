@@ -24,4 +24,19 @@ public class SceneManagerScript : MonoBehaviour
 
         SceneManager.LoadScene("MainMenuScreen");
     }
+
+
+    public void NextScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        SceneManager.LoadScene(nextSceneIndex);
+
+        
+
+
+    }
 }

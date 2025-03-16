@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
@@ -18,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     GameObject dimensionShiftTarget;
     [SerializeField] private GameEvent _moneyChanged;
     private Animator anim;
+    [SerializeField] private TMP_Text _dimensionAmount;
     
 
     public void Awake()
@@ -25,7 +27,10 @@ public class PlayerControl : MonoBehaviour
         anim = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
-
+    private void Start()
+    {
+        StartCoroutine("GiveDimension");
+    }
 
 
     public void Update()
@@ -47,6 +52,13 @@ public class PlayerControl : MonoBehaviour
                 dimensionShifts--;
             }
         }
+        
+
+
+
+        _dimensionAmount.text = dimensionShifts.ToString();
+
+
 
     }
     public void FixedUpdate()
@@ -196,6 +208,21 @@ public class PlayerControl : MonoBehaviour
     {
         dimensionShiftTarget = null;
     }
+
+
+
+    public IEnumerator GiveDimension()
+    {
+
+        dimensionShifts++;
+
+        yield return new WaitForSeconds(5);
+
+        StartCoroutine("GiveDimension");
+
+    }
+
+
 
 }
 
