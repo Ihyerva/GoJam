@@ -152,6 +152,15 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    private void OnMouseEnter()
+    {
+        dimensionShiftTarget = gameObject;
+    }
+    private void OnMouseExit()
+    {
+        dimensionShiftTarget = null;
+    }
+
 }
 
 
