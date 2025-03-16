@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
     private List<Transform> _enemyMoveList = new List<Transform>();
     [SerializeField] private GameEvent _moneyGainEvent,dimensionShiftTargetChangedEvent;
     private int _currentTargetIndex = 0;
+    [SerializeField] private Transform _healthBarLocation;
     
 
 
@@ -56,6 +58,8 @@ public class Enemy : MonoBehaviour
         {
             EnemyMove();
         }
+        _enemyHealthBar.transform.position = _healthBarLocation.position;
+
     }
 
 
@@ -121,4 +125,13 @@ public class Enemy : MonoBehaviour
     {
         return dimension;
     }
+
+    public void updateHealth()
+    {
+
+        _enemyHealthBar.fillAmount = (float)_currentHealth / _maxHealth;
+
+    }
+
+
 }
