@@ -1479,17 +1479,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1461248672 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7251925929894217557, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
-  m_PrefabInstance: {fileID: 1742425523}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a4cd5d53edac9647b07d7913de61d2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1493706741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 569649876368686979, guid: 8457a00321bb5b94ba5b959c01447d25, type: 3}
@@ -1672,46 +1661,6 @@ PrefabInstance:
     - target: {fileID: 5543540738317216705, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6028152040028217042, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
-      propertyPath: events.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6028152040028217042, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
-      propertyPath: events.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 7e934d4c3b30bd24dbffcb92b0dbdc7e, type: 2}
-    - target: {fileID: 6028152040028217042, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
-      propertyPath: responses.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6028152040028217042, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
-      propertyPath: responses.Array.data[1].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6028152040028217042, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
-      propertyPath: responses.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1461248672}
-    - target: {fileID: 6028152040028217042, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
-      propertyPath: responses.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6028152040028217042, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
-      propertyPath: responses.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeDimensionShiftTarget
-      objectReference: {fileID: 0}
-    - target: {fileID: 6028152040028217042, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
-      propertyPath: responses.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerControl, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6028152040028217042, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
-      propertyPath: responses.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7251925929894217557, guid: 52dab7c0072d67b4a97aa4855721e093, type: 3}
-      propertyPath: _playerSpeed
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

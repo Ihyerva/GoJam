@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 6028152040028217042}
   - component: {fileID: 7251925929894217557}
   - component: {fileID: 5976253176816623936}
+  - component: {fileID: 3134003309083619924}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,12 +130,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events:
   - {fileID: 11400000, guid: 12ad8270a8721ac46a2b11b387025592, type: 2}
+  - {fileID: 11400000, guid: 7e934d4c3b30bd24dbffcb92b0dbdc7e, type: 2}
   responses:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7251925929894217557}
         m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
         m_MethodName: IncreaseMoney
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7251925929894217557}
+        m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
+        m_MethodName: ChangeDimensionShiftTarget
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -156,13 +172,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4cd5d53edac9647b07d7913de61d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSpeed: 5
+  _playerSpeed: 3
   _towers:
   - {fileID: 3660855392789979744, guid: a92c9964bd0be534786d72ea6bdca97c, type: 3}
+  - {fileID: 1663456809491792277, guid: 2525f1f693853d74992780c0b8ef7a8e, type: 3}
+  - {fileID: 8691985011421374142, guid: f90418bc995a11e48a84178a7713fbc8, type: 3}
   _playerMoney: 1000
   _playerPlacementRange: 2.2
-  spawnPoint1: {fileID: 0}
-  spawnPoint2: {fileID: 0}
+  spawnPoint1: {fileID: 5179656281902838578, guid: 537d64d8586dbf0458f48386b4606c27, type: 3}
+  spawnPoint2: {fileID: 7741916114054517764, guid: de746b87042c142438ed4a1235f0f858, type: 3}
+  dimensionShiftTarget: {fileID: 0}
   _moneyChanged: {fileID: 11400000, guid: 12ad8270a8721ac46a2b11b387025592, type: 2}
 --- !u!58 &5976253176816623936
 CircleCollider2D:
@@ -199,3 +218,38 @@ CircleCollider2D:
   m_Offset: {x: 0.008661509, y: -0.76834726}
   serializedVersion: 2
   m_Radius: 0.34425426
+--- !u!70 &3134003309083619924
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640848283924849062}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
