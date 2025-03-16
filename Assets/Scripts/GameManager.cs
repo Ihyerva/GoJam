@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> _enemySpawnList = new List<GameObject>();
     [SerializeField] private int _baseHealth = 100;
     [SerializeField] private int _currentBaseHealth;
+    [SerializeField] private Image _healthBar;
     
 
 
@@ -22,7 +25,14 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
-  
+
+    private void Update()
+    {
+        EndGame();
+        _healthBar.fillAmount = (float)_currentBaseHealth / _baseHealth;
+    }
+
+
 
     private IEnumerator SpawnEnemies()
     {
@@ -57,7 +67,17 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void EndGame()
+    {
+        if(_currentBaseHealth <= 0)
+        {
 
+            SceneManager.LoadScene("GameOverScreen");
+
+        }
+
+
+    }
     public void ChangeBaseHealth(int BaseHealth)
     {
 
@@ -65,6 +85,26 @@ public class GameManager : MonoBehaviour
 
     }
 
+
+    public void QuitGame()
+    {
+
+        Application.Quit();
+    }
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene("berkcantest");
+
+
+    }
+
+
+    public void MainMenu()
+    {
+
+        SceneManager.LoadScene("MainMenuScreen");
+    }
 
 
 }
