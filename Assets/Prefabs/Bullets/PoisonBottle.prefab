@@ -163,5 +163,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   range: 2
-  speed: 75
+  speed: 125
   type: 1

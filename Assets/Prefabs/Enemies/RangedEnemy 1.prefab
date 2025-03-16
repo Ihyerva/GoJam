@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4037635076019070127}
   - component: {fileID: 8938185344074762335}
   m_Layer: 0
-  m_Name: WarriorEnemy
+  m_Name: RangedEnemy 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,10 +107,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -130,14 +130,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed5a2fefe2f3e0448540e1343a85bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimension: 1
-  _maxHealth: 150
-  _speed: 6
+  dimension: 2
+  _maxHealth: 100
+  _speed: 4
   _cooldown: 5
-  _bulletSpeed: 100
+  _bulletSpeed: 75
   _moneyGain: 50
-  _bulletPrefab: {fileID: 2337125966888329467, guid: 2496e4e8f079ec642b065026f9ec59a6, type: 3}
-  DimensionalCopy: {fileID: 7076398237643415069, guid: fd962befed9a9f44884b7859f2719621, type: 3}
+  _bulletPrefab: {fileID: 2337125966888329467, guid: 6667665c1fa05924e9dbc15e87aa9f74, type: 3}
+  DimensionalCopy: {fileID: 7076398237643415069, guid: 691ebd2fca9779b478fea208ffbdb18f, type: 3}
   _baseTransform: {fileID: 1679744109804584560, guid: 925ca3be398f0f14abe46ba420e30b01, type: 3}
   shiftSpawnLocation: {fileID: 0}
   _bulletPoint: {fileID: 3693447321313512386}
@@ -200,7 +200,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.8828125}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

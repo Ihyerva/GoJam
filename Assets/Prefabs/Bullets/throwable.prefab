@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   range: 0
-  speed: 150
+  speed: 200
   type: 1
 --- !u!50 &4828170699403041805
 Rigidbody2D:

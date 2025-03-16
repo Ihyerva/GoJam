@@ -131,14 +131,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dimension: 1
-  _maxHealth: 0
-  _damage: 0
-  _speed: 10
+  _maxHealth: 100
+  _speed: 4
   _cooldown: 5
   _bulletSpeed: 75
   _moneyGain: 50
   _bulletPrefab: {fileID: 2337125966888329467, guid: 6667665c1fa05924e9dbc15e87aa9f74, type: 3}
-  DimensionalCopy: {fileID: 7076398237643415069}
+  DimensionalCopy: {fileID: 7076398237643415069, guid: 31388cc3df209e34d8b1d7c343434fe4, type: 3}
   _baseTransform: {fileID: 1679744109804584560, guid: 925ca3be398f0f14abe46ba420e30b01, type: 3}
   shiftSpawnLocation: {fileID: 0}
   _bulletPoint: {fileID: 3693447321313512386}
