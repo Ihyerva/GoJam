@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6982100911998833405}
   - component: {fileID: 775033906807567081}
   - component: {fileID: -5919102657523937584}
+  - component: {fileID: 3968966228152003353}
   m_Layer: 0
   m_Name: ThrowingTower
   m_TagString: Tower
@@ -139,3 +140,24 @@ CircleCollider2D:
   m_Offset: {x: -0.18904252, y: 0.16811585}
   serializedVersion: 2
   m_Radius: 2.3328342
+--- !u!95 &3968966228152003353
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691985011421374142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6afca274eb18caa42972c361b52e4bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

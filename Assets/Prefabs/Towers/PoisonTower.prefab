@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7845029068733909318}
   - component: {fileID: 5175046655373140358}
   - component: {fileID: 2622292004418615698}
+  - component: {fileID: 8057098134925097690}
   m_Layer: 0
   m_Name: PoisonTower
   m_TagString: Tower
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.4276884, y: -0.10325822, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3769538, y: 0.3769538, z: 0.3769538}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dff1de32a5572fd4da9321b53fd6784b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,9 +119,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.12642714, y: -0.7438732}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.93515253
 --- !u!114 &2622292004418615698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +136,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 3
   bulletSpeed: 100
-  range: 3
+  range: 2
   price: 300
   bullet: {fileID: 534110420856723740, guid: 55a6b14ba2c5f354fb4f1b5c97b6ef44, type: 3}
   bulletPoint: {fileID: 3660855392789979744}
+--- !u!95 &8057098134925097690
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660855392789979744}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0611a636fea6b94b908555265d9b56c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
